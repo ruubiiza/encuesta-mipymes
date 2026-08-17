@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encuesta - Digitalizacion de Libros Contables</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;padding:20px}
+.container{max-width:700px;margin:0 auto;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);overflow:hidden}
+.header{background:#673ab7;color:white;padding:24px 32px}
+.header h1{font-size:20px;margin-bottom:8px}
+.header p{font-size:13px;opacity:0.9}
+.section{padding:20px 32px;border-bottom:1px solid #e0e0e0}
+.section-title{font-size:14px;font-weight:600;color:#333;margin-bottom:16px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:14px;font-weight:500;color:#333;margin-bottom:6px}
+.field input[type="text"]{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:4px;font-size:14px}
+.field input[type="text"]:focus{border-color:#673ab7;outline:none}
+.radio-group{display:flex;gap:16px;margin-top:6px}
+.radio-group label{font-size:13px;font-weight:400;display:flex;align-items:center;gap:4px;cursor:pointer}
+.radio-group input[type="radio"]{accent-color:#673ab7}
+.question{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #f0f0f0}
+.question:last-child{border-bottom:none}
+.question-text{font-size:14px;color:#333;margin-bottom:10px;line-height:1.5}
+.question-num{font-weight:700;color:#673ab7}
+.btn-submit{display:block;width:100%;padding:14px;background:#673ab7;color:white;border:none;border-radius:4px;font-size:16px;cursor:pointer;margin-top:10px}
+.btn-submit:hover{background:#5e35b1}
+.footer{text-align:center;padding:16px;font-size:12px;color:#999}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#673ab7;margin-bottom:8px;font-weight:600}
+.hidden{display:none}
+.success{background:#4caf50;color:white;padding:40px;text-align:center;border-radius:8px}
+.success h2{margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Encuesta - Digitalizacion de Libros Contables en MIPYMES</h1>
+    <p>Tesis de Licenciatura en Gerencia de Negocios - UPH | Su participacion es anonima y confidencial</p>
+  </div>
+  
+  <form id="encuesta">
+    <div class="section">
+      <div class="section-label">Seccion I - Datos generales</div>
+      <div class="field">
+        <label>Cargo</label>
+        <input type="text" name="cargo" required placeholder="Ej: Gerente, Contador, Asistente...">
+      </div>
+      <div class="field">
+        <label>Rango de edad</label>
+        <div class="radio-group">
+          <label><input type="radio" name="edad" value="21-30" required> 21-30 anios</label>
+          <label><input type="radio" name="edad" value="31-40"> 31-40 anios</label>
+          <label><input type="radio" name="edad" value="41-49"> 41-49 anios</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Seccion II - Afirmaciones sobre digitalizacion contable</div>
+      <p style="font-size:12px;color:#666;margin-bottom:20px">Marque la opcion que mejor represente su opinion sobre cada afirmacion.</p>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">1.</span> La empresa utiliza un software contable digital (Excel contable, software en la nube) para el registro de sus operaciones.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p1" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p1" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p1" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">2.</span> Los libros contables (diario y mayor) se elaboran actualmente en formato digital (Excel, software contable, nube).</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p2" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p2" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p2" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">3.</span> La empresa utiliza servicios de almacenamiento en la nube (Google Drive, OneDrive, Dropbox) para resguardar la informacion contable.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p3" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p3" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p3" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">4.</span> El personal ha recibido capacitacion para el uso de las herramientas contables digitales.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p4" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p4" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p4" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">5.</span> La empresa dispone del equipo informatico y la conexion a internet necesarios para operar las herramientas contables digitales.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p5" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p5" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p5" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">6.</span> El uso de herramientas digitales reduce el tiempo de registro de las operaciones contables.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p6" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p6" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p6" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">7.</span> Las herramientas digitales han disminuido los errores en los registros contables en comparacion con el registro manual.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p7" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p7" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p7" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">8.</span> Las herramientas digitales permiten generar los estados financieros y reportes de forma mas rapida.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p8" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p8" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p8" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">9.</span> La informacion contable digital esta disponible en tiempo real para la toma de decisiones de la gerencia.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p9" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p9" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p9" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text"><span class="question-num">10.</span> La digitalizacion de los libros contables facilita la toma de decisiones administrativas y el cumplimiento ante el SAR.</div>
+        <div class="radio-group">
+          <label><input type="radio" name="p10" value="De acuerdo" required> De acuerdo</label>
+          <label><input type="radio" name="p10" value="Nulo"> Nulo</label>
+          <label><input type="radio" name="p10" value="En desacuerdo"> En desacuerdo</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Enviar respuestas</button>
+    </div>
+  </form>
+
+  <div id="exito" class="hidden">
+    <div class="success">
+      <h2>Gracias por su participacion</h2>
+      <p>Sus respuestas han sido registradas exitosamente.</p>
+      <p style="margin-top:12px;font-size:12px;opacity:0.8">Su participacion es anonima y confidencial.</p>
+    </div>
+  </div>
+
+  <div class="footer">Tesis: Impacto de la digitalizacion de los libros contables y eficiencia administrativa en las MIPYMES de Choluteca, 2026</div>
+</div>
+
+<script>
+document.getElementById('encuesta').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) { data[key] = value; });
+  
+  // Guardar en localStorage como respaldo
+  var respuestas = JSON.parse(localStorage.getItem('respuestas_encuesta') || '[]');
+  data.fecha = new Date().toISOString();
+  respuestas.push(data);
+  localStorage.setItem('respuestas_encuesta', JSON.stringify(respuestas));
+  
+  // Mostrar exito
+  document.getElementById('encuesta').classList.add('hidden');
+  document.getElementById('exito').classList.remove('hidden');
+});
+</script>
+</body>
+</html>
