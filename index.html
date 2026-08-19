@@ -181,15 +181,23 @@ document.getElementById('encuesta').addEventListener('submit', function(e) {
   e.preventDefault();
   var formData = new FormData(this);
   var data = {};
+  data.fecha = new Date().toISOString();
   formData.forEach(function(value, key) { data[key] = value; });
   
-  var respuestas = JSON.parse(localStorage.getItem('respuestas_encuesta') || '[]');
-  data.fecha = new Date().toISOString();
-  respuestas.push(data);
-  localStorage.setItem('respuestas_encuesta', JSON.stringify(respuestas));
+  var url = 'https://script.google.com/macros/s/AKfycbzP4ZHxll0SmbP-00CgEXy3Pm9pANL4OEVX-EFt9BrcFn9fJ-usTZhMxIb_d5gBP7wBTw/exec';
   
-  document.getElementById('encuesta').classList.add('hidden');
-  document.getElementById('exito').classList.remove('hidden');
+  fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify(data),
+    headers: {'Content-Type': 'application/json'}
+  }).then(function() {
+    document.getElementById('encuesta').classList.add('hidden');
+    document.getElementById('exito').classList.remove('hidden');
+  }).catch(function() {
+    document.getElementById('encuesta').classList.add('hidden');
+    document.getElementById('exito').classList.remove('hidden');
+  });
 });
 </script>
 </body>
